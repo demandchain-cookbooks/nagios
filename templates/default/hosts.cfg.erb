@@ -26,7 +26,7 @@ define host {
     ip = n['ipaddress']
   end %>
   address <%= ip %>
-  host_name <%= n['hostname'] %>
+  host_name <%= n['fqdn'] %>
   <% if node['nagios']['multi_environment_monitoring'] -%>
   <% if n.run_list.roles.nil? || n.run_list.roles.length == 0 -%>
   hostgroups all,<%= n.os %><% if n.chef_environment != '_default' -%>, <%= n.chef_environment %> <% end -%>
